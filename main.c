@@ -190,16 +190,16 @@ FILE *fp;
 if ((fp=fopen("list.txt", "r"))==NULL)
 printf("ファイルをオープンできません。\n");
 else {
-char mi[256],ri[256],yi[256];
+char mi[256],ri[256],yi[256];//miは観察したいアバターのニックネーム、riはファイルから読み取ったニックネーム、yiはランダムに選ばれたニックネームを入れる変数。
 int j=0;
 int u=0;
 printf("生活の様子を観察したいアバターのニックネームを教えてください。");  scanf("%s",mi);
 while (fscanf(fp, "%s %*s %*s", ri) == 1){
- u++;
- if(strcmp(mi,ri)==0)
+ u++;//ファイルからニックネームを読み取るごとにuを1増やす。uはファイルからニックネームを読み取った回数を表す。
+ if(strcmp(mi,ri)==0)//観察したいアバターのニックネームがファイルから読み取ったニックネームと一致したとき。
  j=1;
  else if(rand() % 10>7){
- strcpy(yi,ri);
+ strcpy(yi,ri);//観察したいアバターと違うアバターのニックネームをランダムに選ぶ。
 srand(time(NULL)); }
  if(u==1){
  strcpy(yi,ri);}
